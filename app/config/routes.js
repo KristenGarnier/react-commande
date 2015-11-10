@@ -9,9 +9,9 @@ import { Router, IndexRoute, Route } from 'react-router';
 
 export default (
     <Route name="app" path="/" component={Main}>
-        <Route name="desserts" path="desserts/:id" component={Dessert} />
-        <Route name="boissons" path="boissons/:id" component={Boisson} />
-        <Route name="produits" path="produits/:id" component={Produit} />
+        <Route name="desserts" path="/desserts" component={Dessert} />
+        <Route name="boissons" path="/boissons" component={Boisson} />
+        <Route name="produits" path="/produits" component={Produit} />
         <IndexRoute component={Restaurant} />
         <Route path="*" component={Restaurant}/>
     </Route>

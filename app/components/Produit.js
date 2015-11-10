@@ -1,45 +1,34 @@
 import React from 'react';
 import Link from 'react-router';
-import OptionList from './OptionList';
-
-let Router = require('react-router');
+import ItemList from './ItemList';
 
 let Produit = React.createClass({
-  mixins: [Router.History],
   getInitialState() {
     return this.state = {
       produits: [
         {
-          value: '1',
-          nom: 'Maxi Burger'
+          id: '1',
+          nom: 'Maxi Burger',
+          image:'https://www.codementor.io/assets/tutorial_icon/reactjs.png'
         },
         {
-          value: '2',
-          nom: 'Tacos ta mère'
+          id: '2',
+          nom: 'Tacos ta mère',
+          image: 'https://www.codementor.io/assets/tutorial_icon/reactjs.png'
         },
         {
-          value: '3',
-          nom: 'Kebab malobid'
+          id: '3',
+          nom: 'Kebab malobid',
+          image:'https://www.codementor.io/assets/tutorial_icon/reactjs.png'
         }
       ]
     };
   },
-  handleClick(e){
-    e.preventDefault();
-    let produit = this.refs.produit.getDOMNode().value;
-    this.history.pushState(null, `/boissons/${produit}`);
-  },
-
   render() {
-    console.log(this.props.params.id);
     return (
-      <div className="form-group">
-        <label >Choisissez votre menu - {this.props.params.id}</label>
-          <select ref="produit" className="form-control">
-            <OptionList options={this.state.produits} />
-          </select>
-          <button className="btn btn-primary" onClick={this.handleClick}> Continuer</button>
-          <Link to="/" className="btn btn-default" > Revenir aux restaurants </Link>
+      <div>
+        <h2 >Choisissez votre menu</h2>
+            <ItemList options={this.state.produits} route="/boissons" />
       </div>
     )
   }

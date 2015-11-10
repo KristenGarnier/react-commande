@@ -1,48 +1,39 @@
 import React from 'react';
-import OptionList from './OptionList';
-
-let Router = require('react-router');
+import ItemList from './ItemList';
 
 let Boisson = React.createClass({
-  mixins: [Router.History],
-  getInitialState(){
+    getInitialState(){
 
-    return this.state = {
-      restaurants: [
-        {
-          value: '1',
-          nom: 'Coca'
-        },
-        {
-          value: '2',
-          nom: 'Orangina'
-        },
-        {
-          value: '3',
-          nom: 'Shweps'
-        }
-      ]
-    };
+        return this.state = {
+            boissons: [
+                {
+                    id: '1',
+                    nom: 'Coca',
+                    image:'https://facebook.github.io/react/img/logo_og.png'
+                },
+                {
+                    id: '2',
+                    nom: 'Orangina',
+                    image:'https://facebook.github.io/react/img/logo_og.png'
+                },
+                {
+                    id: '3',
+                    nom: 'Shweps',
+                    image: 'https://facebook.github.io/react/img/logo_og.png'
+                }
+            ]
+        };
 
-  },
+    },
 
-  handleClick(e){
-    e.preventDefault();
-    let boisson = this.refs.boisson.getDOMNode().value;
-    this.history.pushState(null, `/desserts/${boisson}`);
-  },
-
-  render() {
-    return (
-      <div className="form-group">
-        <label >Choississez votre boisson - {this.props.params.id}</label>
-          <select ref="boisson" className="form-control">
-            <OptionList options={this.state.restaurants} />
-          </select>
-          <button className="btn btn-primary" onClick={this.handleClick}> Envoyer</button>
-      </div>
-    )
-  }
+    render() {
+        return (
+            <div>
+                <h2 >Choisissez votre Boisson</h2>
+                <ItemList options={this.state.boissons} route="/desserts"/>
+            </div>
+        )
+    }
 });
 
 export default Boisson;

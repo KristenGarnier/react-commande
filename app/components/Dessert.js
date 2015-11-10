@@ -1,40 +1,39 @@
 import React from 'react';
-import OptionList from './OptionList';
+import ItemList from './ItemList';
 
-let Router = require('react-router');
 
 let Dessert = React.createClass({
-  mixins: [Router.History],
-  getInitialState(){
+    getInitialState(){
 
-    return this.state = {
-      restaurants: [
-        {
-          value: '1',
-          nom: 'Tarte à la fraise'
-        },
-        {
-          value: '2',
-          nom: 'Gateau au chocolat'
-        },
-        {
-          value: '3',
-          nom: 'Pêche melba'
-        }
-      ]
-    };
+        return this.state = {
+            desserts: [
+                {
+                    id: '1',
+                    nom: 'Tarte à la fraise',
+                    image: 'https://upload.wikimedia.org/wikipedia/commons/0/0d/Imagemagick-logo.png'
+                },
+                {
+                    id: '2',
+                    nom: 'Gateau au chocolat',
+                    image: 'https://upload.wikimedia.org/wikipedia/commons/0/0d/Imagemagick-logo.png'
+                },
+                {
+                    id: '3',
+                    nom: 'Pêche melba',
+                    image: 'https://upload.wikimedia.org/wikipedia/commons/0/0d/Imagemagick-logo.png'
+                }
+            ]
+        };
 
-  },
-  render() {
-    return (
-      <div className="form-group">
-        <label >Choississez votre dessert - {this.props.params.id}</label>
-          <select ref="boisson" className="form-control">
-            <OptionList options={this.state.restaurants} />
-          </select>
-      </div>
-    )
-  }
+    },
+    render() {
+        return (
+            <div>
+                <h2 >Choisissez votre Dessert</h2>
+                <ItemList options={this.state.desserts} route="/"/>
+            </div>
+        )
+    }
 });
 
 export default Dessert;

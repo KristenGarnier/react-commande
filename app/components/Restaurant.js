@@ -10,15 +10,15 @@ let Restaurant = React.createClass({
     return this.state = {
       restaurants: [
         {
-          value: '1',
+          id: '1',
           nom: 'Funky'
         },
         {
-          value: '2',
+          id: '2',
           nom: 'Greaser'
         },
         {
-          value: '3',
+          id: '3',
           nom: 'Sultan'
         }
       ]
@@ -29,7 +29,7 @@ let Restaurant = React.createClass({
   handleClick(e){
     e.preventDefault();
     let restaurants = this.refs.restaurant.getDOMNode().value;
-    this.history.pushState(null, `/produits/${restaurants}`);
+    this.history.pushState(null, '/produits');
   },
 
   render() {

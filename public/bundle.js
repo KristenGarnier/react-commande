@@ -24372,9 +24372,9 @@
 	exports['default'] = _react2['default'].createElement(
 	    _reactRouter.Route,
 	    { name: 'app', path: '/', component: _componentsMain2['default'] },
-	    _react2['default'].createElement(_reactRouter.Route, { name: 'desserts', path: 'desserts/:id', component: _componentsDessert2['default'] }),
-	    _react2['default'].createElement(_reactRouter.Route, { name: 'boissons', path: 'boissons/:id', component: _componentsBoisson2['default'] }),
-	    _react2['default'].createElement(_reactRouter.Route, { name: 'produits', path: 'produits/:id', component: _componentsProduit2['default'] }),
+	    _react2['default'].createElement(_reactRouter.Route, { name: 'desserts', path: '/desserts', component: _componentsDessert2['default'] }),
+	    _react2['default'].createElement(_reactRouter.Route, { name: 'boissons', path: '/boissons', component: _componentsBoisson2['default'] }),
+	    _react2['default'].createElement(_reactRouter.Route, { name: 'produits', path: '/produits', component: _componentsProduit2['default'] }),
 	    _react2['default'].createElement(_reactRouter.IndexRoute, { component: _componentsRestaurant2['default'] }),
 	    _react2['default'].createElement(_reactRouter.Route, { path: '*', component: _componentsRestaurant2['default'] })
 	);
@@ -24384,25 +24384,29 @@
 /* 202 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 
-	Object.defineProperty(exports, "__esModule", {
+	Object.defineProperty(exports, '__esModule', {
 	    value: true
 	});
 
-	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
-	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
 
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var _react = __webpack_require__(1);
 
 	var _react2 = _interopRequireDefault(_react);
+
+	var _Navigation = __webpack_require__(210);
+
+	var _Navigation2 = _interopRequireDefault(_Navigation);
 
 	var Main = (function (_React$Component) {
 	    _inherits(Main, _React$Component);
@@ -24410,18 +24414,23 @@
 	    function Main() {
 	        _classCallCheck(this, Main);
 
-	        _get(Object.getPrototypeOf(Main.prototype), "constructor", this).apply(this, arguments);
+	        _get(Object.getPrototypeOf(Main.prototype), 'constructor', this).apply(this, arguments);
 	    }
 
 	    _createClass(Main, [{
-	        key: "render",
+	        key: 'render',
 	        value: function render() {
-	            return _react2["default"].createElement(
-	                "div",
-	                { className: "main-container" },
-	                _react2["default"].createElement(
-	                    "div",
-	                    { className: "container" },
+	            return _react2['default'].createElement(
+	                'div',
+	                { className: 'main-container' },
+	                _react2['default'].createElement(
+	                    'nav',
+	                    { className: 'navbar navbar-default' },
+	                    _react2['default'].createElement(_Navigation2['default'], null)
+	                ),
+	                _react2['default'].createElement(
+	                    'div',
+	                    { className: 'container' },
 	                    this.props.children
 	                )
 	            );
@@ -24429,10 +24438,10 @@
 	    }]);
 
 	    return Main;
-	})(_react2["default"].Component);
+	})(_react2['default'].Component);
 
-	exports["default"] = Main;
-	module.exports = exports["default"];
+	exports['default'] = Main;
+	module.exports = exports['default'];
 
 /***/ },
 /* 203 */
@@ -24464,13 +24473,13 @@
 
 	    return this.state = {
 	      restaurants: [{
-	        value: '1',
+	        id: '1',
 	        nom: 'Funky'
 	      }, {
-	        value: '2',
+	        id: '2',
 	        nom: 'Greaser'
 	      }, {
-	        value: '3',
+	        id: '3',
 	        nom: 'Sultan'
 	      }]
 	    };
@@ -24479,7 +24488,7 @@
 	  handleClick: function handleClick(e) {
 	    e.preventDefault();
 	    var restaurants = this.refs.restaurant.getDOMNode().value;
-	    this.history.pushState(null, '/produits/' + restaurants);
+	    this.history.pushState(null, '/produits');
 	  },
 
 	  render: function render() {
@@ -24529,62 +24538,40 @@
 
 	var _reactRouter2 = _interopRequireDefault(_reactRouter);
 
-	var _OptionList = __webpack_require__(207);
+	var _ItemList = __webpack_require__(211);
 
-	var _OptionList2 = _interopRequireDefault(_OptionList);
-
-	var Router = __webpack_require__(157);
+	var _ItemList2 = _interopRequireDefault(_ItemList);
 
 	var Produit = _react2['default'].createClass({
 	  displayName: 'Produit',
 
-	  mixins: [Router.History],
 	  getInitialState: function getInitialState() {
 	    return this.state = {
 	      produits: [{
-	        value: '1',
-	        nom: 'Maxi Burger'
+	        id: '1',
+	        nom: 'Maxi Burger',
+	        image: 'https://www.codementor.io/assets/tutorial_icon/reactjs.png'
 	      }, {
-	        value: '2',
-	        nom: 'Tacos ta mère'
+	        id: '2',
+	        nom: 'Tacos ta mère',
+	        image: 'https://www.codementor.io/assets/tutorial_icon/reactjs.png'
 	      }, {
-	        value: '3',
-	        nom: 'Kebab malobid'
+	        id: '3',
+	        nom: 'Kebab malobid',
+	        image: 'https://www.codementor.io/assets/tutorial_icon/reactjs.png'
 	      }]
 	    };
 	  },
-	  handleClick: function handleClick(e) {
-	    e.preventDefault();
-	    var produit = this.refs.produit.getDOMNode().value;
-	    this.history.pushState(null, '/boissons/' + produit);
-	  },
-
 	  render: function render() {
-	    console.log(this.props.params.id);
 	    return _react2['default'].createElement(
 	      'div',
-	      { className: 'form-group' },
+	      null,
 	      _react2['default'].createElement(
-	        'label',
+	        'h2',
 	        null,
-	        'Choisissez votre menu - ',
-	        this.props.params.id
+	        'Choisissez votre menu'
 	      ),
-	      _react2['default'].createElement(
-	        'select',
-	        { ref: 'produit', className: 'form-control' },
-	        _react2['default'].createElement(_OptionList2['default'], { options: this.state.produits })
-	      ),
-	      _react2['default'].createElement(
-	        'button',
-	        { className: 'btn btn-primary', onClick: this.handleClick },
-	        ' Continuer'
-	      ),
-	      _react2['default'].createElement(
-	        _reactRouter2['default'],
-	        { to: '/', className: 'btn btn-default' },
-	        ' Revenir aux restaurants '
-	      )
+	      _react2['default'].createElement(_ItemList2['default'], { options: this.state.produits, route: '/boissons' })
 	    );
 	  }
 	});
@@ -24658,7 +24645,7 @@
 	'use strict';
 
 	Object.defineProperty(exports, '__esModule', {
-	  value: true
+	    value: true
 	});
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
@@ -24667,60 +24654,44 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _OptionList = __webpack_require__(207);
+	var _ItemList = __webpack_require__(211);
 
-	var _OptionList2 = _interopRequireDefault(_OptionList);
-
-	var Router = __webpack_require__(157);
+	var _ItemList2 = _interopRequireDefault(_ItemList);
 
 	var Boisson = _react2['default'].createClass({
-	  displayName: 'Boisson',
+	    displayName: 'Boisson',
 
-	  mixins: [Router.History],
-	  getInitialState: function getInitialState() {
+	    getInitialState: function getInitialState() {
 
-	    return this.state = {
-	      restaurants: [{
-	        value: '1',
-	        nom: 'Coca'
-	      }, {
-	        value: '2',
-	        nom: 'Orangina'
-	      }, {
-	        value: '3',
-	        nom: 'Shweps'
-	      }]
-	    };
-	  },
+	        return this.state = {
+	            boissons: [{
+	                id: '1',
+	                nom: 'Coca',
+	                image: 'https://facebook.github.io/react/img/logo_og.png'
+	            }, {
+	                id: '2',
+	                nom: 'Orangina',
+	                image: 'https://facebook.github.io/react/img/logo_og.png'
+	            }, {
+	                id: '3',
+	                nom: 'Shweps',
+	                image: 'https://facebook.github.io/react/img/logo_og.png'
+	            }]
+	        };
+	    },
 
-	  handleClick: function handleClick(e) {
-	    e.preventDefault();
-	    var boisson = this.refs.boisson.getDOMNode().value;
-	    this.history.pushState(null, '/desserts/' + boisson);
-	  },
-
-	  render: function render() {
-	    return _react2['default'].createElement(
-	      'div',
-	      { className: 'form-group' },
-	      _react2['default'].createElement(
-	        'label',
-	        null,
-	        'Choississez votre boisson - ',
-	        this.props.params.id
-	      ),
-	      _react2['default'].createElement(
-	        'select',
-	        { ref: 'boisson', className: 'form-control' },
-	        _react2['default'].createElement(_OptionList2['default'], { options: this.state.restaurants })
-	      ),
-	      _react2['default'].createElement(
-	        'button',
-	        { className: 'btn btn-primary', onClick: this.handleClick },
-	        ' Envoyer'
-	      )
-	    );
-	  }
+	    render: function render() {
+	        return _react2['default'].createElement(
+	            'div',
+	            null,
+	            _react2['default'].createElement(
+	                'h2',
+	                null,
+	                'Choisissez votre Boisson'
+	            ),
+	            _react2['default'].createElement(_ItemList2['default'], { options: this.state.boissons, route: '/desserts' })
+	        );
+	    }
 	});
 
 	exports['default'] = Boisson;
@@ -24733,7 +24704,7 @@
 	'use strict';
 
 	Object.defineProperty(exports, '__esModule', {
-	  value: true
+	    value: true
 	});
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
@@ -24742,51 +24713,262 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _OptionList = __webpack_require__(207);
+	var _ItemList = __webpack_require__(211);
 
-	var _OptionList2 = _interopRequireDefault(_OptionList);
-
-	var Router = __webpack_require__(157);
+	var _ItemList2 = _interopRequireDefault(_ItemList);
 
 	var Dessert = _react2['default'].createClass({
-	  displayName: 'Dessert',
+	    displayName: 'Dessert',
 
-	  mixins: [Router.History],
-	  getInitialState: function getInitialState() {
+	    getInitialState: function getInitialState() {
 
-	    return this.state = {
-	      restaurants: [{
-	        value: '1',
-	        nom: 'Tarte à la fraise'
-	      }, {
-	        value: '2',
-	        nom: 'Gateau au chocolat'
-	      }, {
-	        value: '3',
-	        nom: 'Pêche melba'
-	      }]
-	    };
-	  },
-	  render: function render() {
-	    return _react2['default'].createElement(
-	      'div',
-	      { className: 'form-group' },
-	      _react2['default'].createElement(
-	        'label',
-	        null,
-	        'Choississez votre dessert - ',
-	        this.props.params.id
-	      ),
-	      _react2['default'].createElement(
-	        'select',
-	        { ref: 'boisson', className: 'form-control' },
-	        _react2['default'].createElement(_OptionList2['default'], { options: this.state.restaurants })
-	      )
-	    );
-	  }
+	        return this.state = {
+	            desserts: [{
+	                id: '1',
+	                nom: 'Tarte à la fraise',
+	                image: 'https://upload.wikimedia.org/wikipedia/commons/0/0d/Imagemagick-logo.png'
+	            }, {
+	                id: '2',
+	                nom: 'Gateau au chocolat',
+	                image: 'https://upload.wikimedia.org/wikipedia/commons/0/0d/Imagemagick-logo.png'
+	            }, {
+	                id: '3',
+	                nom: 'Pêche melba',
+	                image: 'https://upload.wikimedia.org/wikipedia/commons/0/0d/Imagemagick-logo.png'
+	            }]
+	        };
+	    },
+	    render: function render() {
+	        return _react2['default'].createElement(
+	            'div',
+	            null,
+	            _react2['default'].createElement(
+	                'h2',
+	                null,
+	                'Choisissez votre Dessert'
+	            ),
+	            _react2['default'].createElement(_ItemList2['default'], { options: this.state.desserts, route: '/' })
+	        );
+	    }
 	});
 
 	exports['default'] = Dessert;
+	module.exports = exports['default'];
+
+/***/ },
+/* 210 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+	    value: true
+	});
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var Router = __webpack_require__(157);
+
+	var Navigation = _react2['default'].createClass({
+	    displayName: 'Navigation',
+
+	    mixins: [Router.History],
+	    handleNav: function handleNav(route) {
+	        switch (route) {
+	            case 'restaurant':
+	                this.history.pushState(null, '/');
+	                break;
+	            case 'produits':
+	                this.history.pushState(null, '/' + route);
+	                break;
+	            case 'boissons':
+	                this.history.pushState(null, '/' + route);
+	                break;
+	            case 'desserts':
+	                this.history.pushState(null, '/' + route);
+	                break;
+	        }
+	    },
+	    render: function render() {
+	        return _react2['default'].createElement(
+	            'div',
+	            { className: 'container-fluid' },
+	            _react2['default'].createElement(
+	                'div',
+	                { className: 'navbar-header' },
+	                _react2['default'].createElement(
+	                    'button',
+	                    { type: 'button', className: 'navbar-toggle collapsed', 'data-toggle': 'collapse', 'data-target': '#bs-example-navbar-collapse-1', 'aria-expanded': 'false' },
+	                    _react2['default'].createElement(
+	                        'span',
+	                        { className: 'sr-only' },
+	                        'Toggle navigation'
+	                    ),
+	                    _react2['default'].createElement('span', { className: 'icon-bar' }),
+	                    _react2['default'].createElement('span', { className: 'icon-bar' }),
+	                    _react2['default'].createElement('span', { className: 'icon-bar' })
+	                ),
+	                _react2['default'].createElement(
+	                    'a',
+	                    { className: 'navbar-brand', href: '#' },
+	                    'BRAND'
+	                )
+	            ),
+	            _react2['default'].createElement(
+	                'div',
+	                { className: 'collapse navbar-collapse', id: 'bs-example-navbar-collapse-1' },
+	                _react2['default'].createElement(
+	                    'ul',
+	                    { className: 'nav navbar-nav navbar-right' },
+	                    _react2['default'].createElement(
+	                        'li',
+	                        null,
+	                        _react2['default'].createElement(
+	                            'button',
+	                            { className: 'btn btn-primary' },
+	                            'Restaurants'
+	                        )
+	                    ),
+	                    _react2['default'].createElement(
+	                        'li',
+	                        null,
+	                        _react2['default'].createElement(
+	                            'button',
+	                            { className: 'btn btn-primary' },
+	                            'Menus'
+	                        )
+	                    ),
+	                    _react2['default'].createElement(
+	                        'li',
+	                        null,
+	                        _react2['default'].createElement(
+	                            'button',
+	                            { className: 'btn btn-primary' },
+	                            'Boissons'
+	                        )
+	                    ),
+	                    _react2['default'].createElement(
+	                        'li',
+	                        null,
+	                        _react2['default'].createElement(
+	                            'button',
+	                            { className: 'btn btn-primary' },
+	                            'Desserts'
+	                        )
+	                    )
+	                )
+	            )
+	        );
+	    }
+	});
+
+	exports['default'] = Navigation;
+	module.exports = exports['default'];
+
+/***/ },
+/* 211 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+	    value: true
+	});
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _Button = __webpack_require__(212);
+
+	var _Button2 = _interopRequireDefault(_Button);
+
+	var ItemList = _react2['default'].createClass({
+	    displayName: 'ItemList',
+
+	    handleClick: function handleClick(route) {
+	        console.log(route);
+	    },
+	    render: function render() {
+	        var _this = this;
+
+	        var items = this.props.options.map(function (item, index) {
+	            return _react2['default'].createElement(
+	                'div',
+	                { className: 'col-sm-6 col-md-4', key: index },
+	                _react2['default'].createElement(
+	                    'div',
+	                    { className: 'thumbnail' },
+	                    _react2['default'].createElement('img', { src: item.image, alt: item.nom }),
+	                    _react2['default'].createElement(
+	                        'div',
+	                        { className: 'caption' },
+	                        _react2['default'].createElement(
+	                            'h3',
+	                            null,
+	                            item.nom
+	                        ),
+	                        _react2['default'].createElement(
+	                            'p',
+	                            null,
+	                            _react2['default'].createElement(_Button2['default'], { route: _this.props.route })
+	                        )
+	                    )
+	                )
+	            );
+	        });
+	        return _react2['default'].createElement(
+	            'div',
+	            { className: 'row' },
+	            items
+	        );
+	    }
+	});
+
+	exports['default'] = ItemList;
+	module.exports = exports['default'];
+
+/***/ },
+/* 212 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+	    value: true
+	});
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var Router = __webpack_require__(157);
+
+	var Button = _react2['default'].createClass({
+	    displayName: 'Button',
+
+	    mixins: [Router.History],
+	    handleTo: function handleTo() {
+	        this.history.pushState(null, this.props.route);
+	    },
+	    render: function render() {
+	        return _react2['default'].createElement(
+	            'button',
+	            { className: 'btn btn-primary', onClick: this.handleTo },
+	            'Choisir'
+	        );
+	    }
+	});
+
+	exports['default'] = Button;
 	module.exports = exports['default'];
 
 /***/ }
