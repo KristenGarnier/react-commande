@@ -1,5 +1,5 @@
 import React from 'react';
-import RestaurantList from './RestaurantList';
+import OptionList from './OptionList';
 
 let Router = require('react-router');
 
@@ -37,7 +37,7 @@ let Restaurant = React.createClass({
       <div className="form-group">
         <label >Choississez votre restaurant</label>
           <select ref="restaurant" className="form-control">
-            <RestaurantList restaurants={this.state.restaurants} />
+            <OptionList options={this.state.restaurants} />
           </select>
           <button className="btn btn-primary" onClick={this.handleClick}> Envoyer</button>
       </div>

@@ -1,6 +1,6 @@
 import React from 'react';
 import {Router, Link} from 'react-router';
-import ProduitList from './ProduitList';
+import OptionList from './OptionList';
 
 let Produit = React.createClass({
   mixins: [Router.State],
@@ -27,9 +27,9 @@ let Produit = React.createClass({
     console.log(this.props.params.id);
     return (
       <div className="form-group">
-        <label >{this.props.params.id}</label>
+        <label >Choisissez votre menu</label>
           <select ref="produit" className="form-control">
-            <ProduitList restaurants={this.state.produits} />
+            <OptionList options={this.state.produits} />
           </select>
           <Link to="/" className="btn btn-default" > Revenir aux restaurants </Link>
       </div>

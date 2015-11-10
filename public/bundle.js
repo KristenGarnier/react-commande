@@ -24440,9 +24440,9 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _RestaurantList = __webpack_require__(204);
+	var _OptionList = __webpack_require__(207);
 
-	var _RestaurantList2 = _interopRequireDefault(_RestaurantList);
+	var _OptionList2 = _interopRequireDefault(_OptionList);
 
 	var Router = __webpack_require__(157);
 
@@ -24484,7 +24484,7 @@
 	      _react2['default'].createElement(
 	        'select',
 	        { ref: 'restaurant', className: 'form-control' },
-	        _react2['default'].createElement(_RestaurantList2['default'], { restaurants: this.state.restaurants })
+	        _react2['default'].createElement(_OptionList2['default'], { options: this.state.restaurants })
 	      ),
 	      _react2['default'].createElement(
 	        'button',
@@ -24499,65 +24499,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 204 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, '__esModule', {
-	  value: true
-	});
-
-	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var RestaurantList = (function (_React$Component) {
-	  _inherits(RestaurantList, _React$Component);
-
-	  function RestaurantList() {
-	    _classCallCheck(this, RestaurantList);
-
-	    _get(Object.getPrototypeOf(RestaurantList.prototype), 'constructor', this).apply(this, arguments);
-	  }
-
-	  _createClass(RestaurantList, [{
-	    key: 'render',
-	    value: function render() {
-	      var restaurants = this.props.restaurants.map(function (restau, index) {
-	        console.log(restau);
-	        return _react2['default'].createElement(
-	          'option',
-	          { value: restau.value, key: index },
-	          restau.nom
-	        );
-	      });
-
-	      return _react2['default'].createElement(
-	        'span',
-	        null,
-	        restaurants
-	      );
-	    }
-	  }]);
-
-	  return RestaurantList;
-	})(_react2['default'].Component);
-
-	exports['default'] = RestaurantList;
-	module.exports = exports['default'];
-
-/***/ },
+/* 204 */,
 /* 205 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -24575,9 +24517,9 @@
 
 	var _reactRouter = __webpack_require__(157);
 
-	var _ProduitList = __webpack_require__(206);
+	var _OptionList = __webpack_require__(207);
 
-	var _ProduitList2 = _interopRequireDefault(_ProduitList);
+	var _OptionList2 = _interopRequireDefault(_OptionList);
 
 	var Produit = _react2['default'].createClass({
 	  displayName: 'Produit',
@@ -24606,12 +24548,12 @@
 	      _react2['default'].createElement(
 	        'label',
 	        null,
-	        this.props.params.id
+	        'Choisissez votre menu'
 	      ),
 	      _react2['default'].createElement(
 	        'select',
 	        { ref: 'produit', className: 'form-control' },
-	        _react2['default'].createElement(_ProduitList2['default'], { restaurants: this.state.produits })
+	        _react2['default'].createElement(_OptionList2['default'], { options: this.state.produits })
 	      ),
 	      _react2['default'].createElement(
 	        _reactRouter.Link,
@@ -24626,7 +24568,8 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 206 */
+/* 206 */,
+/* 207 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -24649,38 +24592,38 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var ProduitList = (function (_React$Component) {
-	  _inherits(ProduitList, _React$Component);
+	var OptionList = (function (_React$Component) {
+	  _inherits(OptionList, _React$Component);
 
-	  function ProduitList() {
-	    _classCallCheck(this, ProduitList);
+	  function OptionList() {
+	    _classCallCheck(this, OptionList);
 
-	    _get(Object.getPrototypeOf(ProduitList.prototype), 'constructor', this).apply(this, arguments);
+	    _get(Object.getPrototypeOf(OptionList.prototype), 'constructor', this).apply(this, arguments);
 	  }
 
-	  _createClass(ProduitList, [{
+	  _createClass(OptionList, [{
 	    key: 'render',
 	    value: function render() {
-	      var produits = this.props.restaurants.map(function (produit, index) {
+	      var options = this.props.options.map(function (option, index) {
 	        return _react2['default'].createElement(
 	          'option',
-	          { value: produit.value, key: index },
-	          produit.nom
+	          { value: option.value, key: index },
+	          option.nom
 	        );
 	      });
 
 	      return _react2['default'].createElement(
 	        'span',
 	        null,
-	        produits
+	        options
 	      );
 	    }
 	  }]);
 
-	  return ProduitList;
+	  return OptionList;
 	})(_react2['default'].Component);
 
-	exports['default'] = ProduitList;
+	exports['default'] = OptionList;
 	module.exports = exports['default'];
 
 /***/ }
