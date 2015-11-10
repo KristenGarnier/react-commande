@@ -34,11 +34,12 @@ let Restaurant = React.createClass({
 
   render() {
     return (
-      <div>
-          <select ref="restaurant">
+      <div className="form-group">
+        <label >Choississez votre restaurant</label>
+          <select ref="restaurant" className="form-control">
             <RestaurantList restaurants={this.state.restaurants} />
           </select>
-          <button onClick={this.handleClick}> Envoyer</button>
+          <button className="btn btn-primary" onClick={this.handleClick}> Envoyer</button>
       </div>
     )
   }

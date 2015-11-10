@@ -1,7 +1,9 @@
 import React from 'react';
+import {Router, Link} from 'react-router';
 import ProduitList from './ProduitList';
 
 let Produit = React.createClass({
+  mixins: [Router.State],
   getInitialState() {
     return this.state = {
       produits: [
@@ -20,16 +22,16 @@ let Produit = React.createClass({
       ]
     };
   },
-  componentWillReceiveProps(props){
-    console.log(this.props);
-  },
 
   render() {
+    console.log(this.props.params.id);
     return (
-      <div>
-          <select ref="produit">
+      <div className="form-group">
+        <label >{this.props.params.id}</label>
+          <select ref="produit" className="form-control">
             <ProduitList restaurants={this.state.produits} />
           </select>
+          <Link to="/" className="btn btn-default" > Revenir aux restaurants </Link>
       </div>
     )
   }

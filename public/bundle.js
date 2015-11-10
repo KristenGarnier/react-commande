@@ -24351,11 +24351,11 @@
 
 	var _componentsMain2 = _interopRequireDefault(_componentsMain);
 
-	var _componentsRestaurant = __webpack_require__(227);
+	var _componentsRestaurant = __webpack_require__(203);
 
 	var _componentsRestaurant2 = _interopRequireDefault(_componentsRestaurant);
 
-	var _componentsProduit = __webpack_require__(229);
+	var _componentsProduit = __webpack_require__(205);
 
 	var _componentsProduit2 = _interopRequireDefault(_componentsProduit);
 
@@ -24374,27 +24374,25 @@
 /* 202 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
+	"use strict";
 
-	Object.defineProperty(exports, '__esModule', {
+	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
 
-	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
-	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
 
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var _react = __webpack_require__(1);
 
 	var _react2 = _interopRequireDefault(_react);
-
-	var _reactRouter = __webpack_require__(157);
 
 	var Main = (function (_React$Component) {
 	    _inherits(Main, _React$Component);
@@ -24402,18 +24400,18 @@
 	    function Main() {
 	        _classCallCheck(this, Main);
 
-	        _get(Object.getPrototypeOf(Main.prototype), 'constructor', this).apply(this, arguments);
+	        _get(Object.getPrototypeOf(Main.prototype), "constructor", this).apply(this, arguments);
 	    }
 
 	    _createClass(Main, [{
-	        key: 'render',
+	        key: "render",
 	        value: function render() {
-	            return _react2['default'].createElement(
-	                'div',
-	                { className: 'main-container' },
-	                _react2['default'].createElement(
-	                    'div',
-	                    { className: 'container' },
+	            return _react2["default"].createElement(
+	                "div",
+	                { className: "main-container" },
+	                _react2["default"].createElement(
+	                    "div",
+	                    { className: "container" },
 	                    this.props.children
 	                )
 	            );
@@ -24421,37 +24419,13 @@
 	    }]);
 
 	    return Main;
-	})(_react2['default'].Component);
+	})(_react2["default"].Component);
 
-	exports['default'] = Main;
-	module.exports = exports['default'];
+	exports["default"] = Main;
+	module.exports = exports["default"];
 
 /***/ },
-/* 203 */,
-/* 204 */,
-/* 205 */,
-/* 206 */,
-/* 207 */,
-/* 208 */,
-/* 209 */,
-/* 210 */,
-/* 211 */,
-/* 212 */,
-/* 213 */,
-/* 214 */,
-/* 215 */,
-/* 216 */,
-/* 217 */,
-/* 218 */,
-/* 219 */,
-/* 220 */,
-/* 221 */,
-/* 222 */,
-/* 223 */,
-/* 224 */,
-/* 225 */,
-/* 226 */,
-/* 227 */
+/* 203 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -24466,7 +24440,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _RestaurantList = __webpack_require__(228);
+	var _RestaurantList = __webpack_require__(204);
 
 	var _RestaurantList2 = _interopRequireDefault(_RestaurantList);
 
@@ -24501,15 +24475,20 @@
 	  render: function render() {
 	    return _react2['default'].createElement(
 	      'div',
-	      null,
+	      { className: 'form-group' },
+	      _react2['default'].createElement(
+	        'label',
+	        null,
+	        'Choississez votre restaurant'
+	      ),
 	      _react2['default'].createElement(
 	        'select',
-	        { ref: 'restaurant' },
+	        { ref: 'restaurant', className: 'form-control' },
 	        _react2['default'].createElement(_RestaurantList2['default'], { restaurants: this.state.restaurants })
 	      ),
 	      _react2['default'].createElement(
 	        'button',
-	        { onClick: this.handleClick },
+	        { className: 'btn btn-primary', onClick: this.handleClick },
 	        ' Envoyer'
 	      )
 	    );
@@ -24520,7 +24499,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 228 */
+/* 204 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -24579,7 +24558,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 229 */
+/* 205 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -24594,13 +24573,16 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _ProduitList = __webpack_require__(230);
+	var _reactRouter = __webpack_require__(157);
+
+	var _ProduitList = __webpack_require__(206);
 
 	var _ProduitList2 = _interopRequireDefault(_ProduitList);
 
 	var Produit = _react2['default'].createClass({
 	  displayName: 'Produit',
 
+	  mixins: [_reactRouter.Router.State],
 	  getInitialState: function getInitialState() {
 	    return this.state = {
 	      produits: [{
@@ -24615,18 +24597,26 @@
 	      }]
 	    };
 	  },
-	  componentWillReceiveProps: function componentWillReceiveProps(props) {
-	    console.log(this.props);
-	  },
 
 	  render: function render() {
+	    console.log(this.props.params.id);
 	    return _react2['default'].createElement(
 	      'div',
-	      null,
+	      { className: 'form-group' },
+	      _react2['default'].createElement(
+	        'label',
+	        null,
+	        this.props.params.id
+	      ),
 	      _react2['default'].createElement(
 	        'select',
-	        { ref: 'produit' },
+	        { ref: 'produit', className: 'form-control' },
 	        _react2['default'].createElement(_ProduitList2['default'], { restaurants: this.state.produits })
+	      ),
+	      _react2['default'].createElement(
+	        _reactRouter.Link,
+	        { to: '/', className: 'btn btn-default' },
+	        ' Revenir aux restaurants '
 	      )
 	    );
 	  }
@@ -24636,7 +24626,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 230 */
+/* 206 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
