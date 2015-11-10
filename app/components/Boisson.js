@@ -3,7 +3,7 @@ import OptionList from './OptionList';
 
 let Router = require('react-router');
 
-let Restaurant = React.createClass({
+let Boisson = React.createClass({
   mixins: [Router.History],
   getInitialState(){
 
@@ -11,15 +11,15 @@ let Restaurant = React.createClass({
       restaurants: [
         {
           value: '1',
-          nom: 'Funky'
+          nom: 'Coca'
         },
         {
           value: '2',
-          nom: 'Greaser'
+          nom: 'Orangina'
         },
         {
           value: '3',
-          nom: 'Sultan'
+          nom: 'Shweps'
         }
       ]
     };
@@ -28,15 +28,15 @@ let Restaurant = React.createClass({
 
   handleClick(e){
     e.preventDefault();
-    let restaurants = this.refs.restaurant.getDOMNode().value;
-    this.history.pushState(null, `/produits/${restaurants}`);
+    let boisson = this.refs.boisson.getDOMNode().value;
+    this.history.pushState(null, `/desserts/${boisson}`);
   },
 
   render() {
     return (
       <div className="form-group">
-        <label >Choississez votre restaurant</label>
-          <select ref="restaurant" className="form-control">
+        <label >Choississez votre boisson - {this.props.params.id}</label>
+          <select ref="boisson" className="form-control">
             <OptionList options={this.state.restaurants} />
           </select>
           <button className="btn btn-primary" onClick={this.handleClick}> Envoyer</button>
@@ -45,4 +45,4 @@ let Restaurant = React.createClass({
   }
 });
 
-export default Restaurant;
+export default Boisson;
