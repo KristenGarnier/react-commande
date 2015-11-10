@@ -25211,6 +25211,10 @@
 
 	var _componentsDessert2 = _interopRequireDefault(_componentsDessert);
 
+	var _componentsPanier = __webpack_require__(217);
+
+	var _componentsPanier2 = _interopRequireDefault(_componentsPanier);
+
 	var _reactRouter = __webpack_require__(157);
 
 	exports['default'] = _react2['default'].createElement(
@@ -25219,6 +25223,7 @@
 	    _react2['default'].createElement(_reactRouter.Route, { name: 'desserts', path: '/desserts', component: _componentsDessert2['default'] }),
 	    _react2['default'].createElement(_reactRouter.Route, { name: 'boissons', path: '/boissons', component: _componentsBoisson2['default'] }),
 	    _react2['default'].createElement(_reactRouter.Route, { name: 'produits', path: '/produits', component: _componentsProduit2['default'] }),
+	    _react2['default'].createElement(_reactRouter.Route, { name: 'panier', path: '/panier', component: _componentsPanier2['default'] }),
 	    _react2['default'].createElement(_reactRouter.IndexRoute, { component: _componentsRestaurant2['default'] }),
 	    _react2['default'].createElement(_reactRouter.Route, { path: '*', component: _componentsRestaurant2['default'] })
 	);
@@ -25271,25 +25276,7 @@
 	            _react2['default'].createElement(
 	                'div',
 	                { className: 'container' },
-	                _react2['default'].createElement(
-	                    'div',
-	                    { className: 'row' },
-	                    _react2['default'].createElement(
-	                        'div',
-	                        { className: 'col col-md-8' },
-	                        this.props.children
-	                    ),
-	                    _react2['default'].createElement(
-	                        'div',
-	                        { className: 'col col-md-4' },
-	                        _react2['default'].createElement(
-	                            'h2',
-	                            null,
-	                            'Panier'
-	                        ),
-	                        _react2['default'].createElement(_Panier2['default'], null)
-	                    )
-	                )
+	                this.props.children
 	            )
 	        );
 	    }
@@ -25320,21 +25307,20 @@
 	    displayName: 'Navigation',
 
 	    mixins: [Router.History],
-	    handleNav: function handleNav(route) {
-	        switch (route) {
-	            case 'restaurant':
-	                this.history.pushState(null, '/');
-	                break;
-	            case 'produits':
-	                this.history.pushState(null, '/' + route);
-	                break;
-	            case 'boissons':
-	                this.history.pushState(null, '/' + route);
-	                break;
-	            case 'desserts':
-	                this.history.pushState(null, '/' + route);
-	                break;
-	        }
+	    handleRestaurant: function handleRestaurant() {
+	        this.history.pushState(null, '/restaurant');
+	    },
+	    handleMenu: function handleMenu() {
+	        this.history.pushState(null, '/produits');
+	    },
+	    handleBoisson: function handleBoisson() {
+	        this.history.pushState(null, '/boissons');
+	    },
+	    handleDessert: function handleDessert() {
+	        this.history.pushState(null, '/desserts');
+	    },
+	    handlePanier: function handlePanier() {
+	        this.history.pushState(null, '/panier');
 	    },
 	    render: function render() {
 	        return _react2['default'].createElement(
@@ -25372,7 +25358,7 @@
 	                        null,
 	                        _react2['default'].createElement(
 	                            'button',
-	                            { className: 'btn btn-primary' },
+	                            { className: 'btn btn-primary', onClick: this.handleRestaurant },
 	                            'Restaurants'
 	                        )
 	                    ),
@@ -25381,7 +25367,7 @@
 	                        null,
 	                        _react2['default'].createElement(
 	                            'button',
-	                            { className: 'btn btn-primary' },
+	                            { className: 'btn btn-primary', onClick: this.handleMenu },
 	                            'Menus'
 	                        )
 	                    ),
@@ -25390,7 +25376,7 @@
 	                        null,
 	                        _react2['default'].createElement(
 	                            'button',
-	                            { className: 'btn btn-primary' },
+	                            { className: 'btn btn-primary', onClick: this.handleBoisson },
 	                            'Boissons'
 	                        )
 	                    ),
@@ -25399,8 +25385,17 @@
 	                        null,
 	                        _react2['default'].createElement(
 	                            'button',
-	                            { className: 'btn btn-primary' },
+	                            { className: 'btn btn-primary', onClick: this.handleDessert },
 	                            'Desserts'
+	                        )
+	                    ),
+	                    _react2['default'].createElement(
+	                        'li',
+	                        null,
+	                        _react2['default'].createElement(
+	                            'button',
+	                            { className: 'btn btn-primary', onClick: this.handlePanier },
+	                            'Panier'
 	                        )
 	                    )
 	                )
@@ -25634,7 +25629,7 @@
 	        var items = this.props.options.map(function (item, index) {
 	            return _react2['default'].createElement(
 	                'div',
-	                { className: 'col-sm-6 col-md-4', key: index },
+	                { className: 'col-sm-6 col-md-3', key: index },
 	                _react2['default'].createElement(
 	                    'div',
 	                    { className: 'thumbnail' },
@@ -25838,20 +25833,28 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _ItemList = __webpack_require__(213);
+
+	var _ItemList2 = _interopRequireDefault(_ItemList);
+
 	var Panier = _react2['default'].createClass({
 	    displayName: 'Panier',
 
 	    getInitialState: function getInitialState() {
 	        return this.state = {
-	            panier: JSON.parse(sessionStorage.getItem('panier'))
+	            panier: [JSON.parse(sessionStorage.getItem('panier'))]
 	        };
 	    },
 	    render: function render() {
-	        console.log(sessionStorage.getItem('panier'));
 	        return _react2['default'].createElement(
-	            'p',
+	            'div',
 	            null,
-	            this.state.panier
+	            _react2['default'].createElement(
+	                'h2',
+	                null,
+	                'Votre panier'
+	            ),
+	            _react2['default'].createElement(_ItemList2['default'], { options: this.state.panier, route: '/' })
 	        );
 	    }
 	});

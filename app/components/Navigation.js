@@ -4,21 +4,20 @@ let Router = require('react-router');
 
 let Navigation = React.createClass({
     mixins: [Router.History],
-    handleNav(route){
-        switch(route){
-            case 'restaurant':
-                this.history.pushState(null, `/`);
-                break;
-            case 'produits':
-                this.history.pushState(null, `/${route}`);
-                break;
-            case 'boissons':
-                this.history.pushState(null, `/${route}`);
-                break;
-            case 'desserts':
-                this.history.pushState(null, `/${route}`);
-                break;
-        }
+    handleRestaurant(){
+        this.history.pushState(null, '/restaurant');
+    },
+    handleMenu(){
+        this.history.pushState(null, '/produits');
+    },
+    handleBoisson(){
+        this.history.pushState(null, '/boissons');
+    },
+    handleDessert(){
+        this.history.pushState(null, '/desserts');
+    },
+    handlePanier(){
+        this.history.pushState(null, '/panier');
     },
     render() {
         return (
@@ -35,10 +34,11 @@ let Navigation = React.createClass({
 
                 <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul className="nav navbar-nav navbar-right">
-                            <li><button className="btn btn-primary">Restaurants</button></li>
-                            <li><button className="btn btn-primary" >Menus</button></li>
-                            <li><button className="btn btn-primary" >Boissons</button></li>
-                            <li><button className="btn btn-primary" >Desserts</button></li>
+                            <li><button className="btn btn-primary" onClick={this.handleRestaurant}>Restaurants</button></li>
+                            <li><button className="btn btn-primary" onClick={this.handleMenu}>Menus</button></li>
+                            <li><button className="btn btn-primary" onClick={this.handleBoisson}>Boissons</button></li>
+                            <li><button className="btn btn-primary" onClick={this.handleDessert}>Desserts</button></li>
+                            <li><button className="btn btn-primary" onClick={this.handlePanier}>Panier</button></li>
                         </ul>
                     </div>
                 </div>

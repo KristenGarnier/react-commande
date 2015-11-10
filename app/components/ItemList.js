@@ -5,7 +5,7 @@ let ItemList = React.createClass({
     render(){
         let items = this.props.options.map((item, index) => {
             return (
-                    <div className="col-sm-6 col-md-4" key={index}>
+                    <div className="col-sm-6 col-md-3" key={index}>
                         <div className="thumbnail">
                             <img src={item.image} alt={item.nom} />
                             <div className="caption">
