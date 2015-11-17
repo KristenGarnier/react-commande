@@ -1,8 +1,12 @@
 import React from 'react';
 import Link from 'react-router';
 import ItemList from './ItemList';
+import helpers from './utils/helpers';
+
+let Router = require('react-router');
 
 let Produit = React.createClass({
+  mixins: [Router.History],
   getInitialState() {
     return this.state = {
       produits: [
@@ -24,11 +28,15 @@ let Produit = React.createClass({
       ]
     };
   },
+  handleClick(item){
+    helpers.setSession('panier', item, true);
+    //this.history.pushState(null, this.props.route);
+  },
   render() {
     return (
       <div>
         <h2 >Choisissez votre menu</h2>
-            <ItemList options={this.state.produits} route="/boissons" />
+            <ItemList options={this.state.produits} click={this.handleClick} />
       </div>
     )
   }

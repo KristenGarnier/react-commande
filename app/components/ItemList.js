@@ -11,7 +11,7 @@ let ItemList = React.createClass({
                             <div className="caption">
                                 <h3>{item.nom}</h3>
                                 <p>
-                                    <Button route={this.props.route} item={item} />
+                                    <Button item={item} click={this.props.click} />
                                 </p>
                             </div>
                         </div>
