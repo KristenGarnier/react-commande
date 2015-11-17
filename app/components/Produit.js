@@ -29,7 +29,7 @@ let Produit = React.createClass({
     };
   },
   handleClick(item){
-    helpers.setSession('panier', item, true);
+    helpers.setSession('panier', item);
     //this.history.pushState(null, this.props.route);
   },
   render() {

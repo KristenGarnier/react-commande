@@ -25732,7 +25732,7 @@
 	    };
 	  },
 	  handleClick: function handleClick(item) {
-	    _utilsHelpers2['default'].setSession('panier', item, true);
+	    _utilsHelpers2['default'].setSession('panier', item);
 	    //this.history.pushState(null, this.props.route);
 	  },
 	  render: function render() {
