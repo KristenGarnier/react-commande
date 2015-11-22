@@ -1,10 +1,12 @@
 import React from 'react';
 import ItemList from './ItemList';
+import helpers from './utils/helpers';
 
+let Router = require('react-router');
 
 let Dessert = React.createClass({
+    mixins: [Router.History],
     getInitialState(){
-
         return this.state = {
             desserts: [
                 {
@@ -26,11 +28,15 @@ let Dessert = React.createClass({
         };
 
     },
+    handleClick(item){
+        helpers.setSession('panier', item, true);
+        this.history.pushState(null, '/panier');
+    },
     render() {
         return (
             <div>
                 <h2 >Choisissez votre Dessert</h2>
-                <ItemList options={this.state.desserts} route="/"/>
+                <ItemList options={this.state.desserts} click={this.handleClick}/>
             </div>
         )
     }

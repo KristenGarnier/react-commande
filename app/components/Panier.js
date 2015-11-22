@@ -3,23 +3,28 @@ import ItemList from './ItemList';
 
 let Panier = React.createClass({
     getInitialState(){
-        let panierSession = JSON.parse(sessionStorage.getItem('panier')), index;
+        let panierSession = JSON.parse(sessionStorage.getItem('panier')), index, panierProduits;
         panierSession.forEach((item, i)=> {
             if(item.menu !== null){
                 index = i;
             }
         });
+        panierProduits = panierSession.map(function(item){
+            if(item.menu === null){
+                return item;
+            }
+        });
         return this.state = {
-            panier: panierSession,
-            index: index
+            panierMenu: panierSession[index].menu,
+            panierProduits: panierProduits[0] == undefined ? panierProduits = [] : panierProduits
         };
     },
     render(){
-        console.log(this.state.panier[0].menu);
         return (
             <div>
                 <h2>Votre panier</h2>
-                <ItemList options={this.state.panier[this.state.index].menu} />
+                <ItemList options={this.state.panierMenu} />
+                <ItemList options={this.state.panierProduits} />
             </div>
         )
     }

@@ -25432,19 +25432,24 @@
 
 	    getInitialState: function getInitialState() {
 	        var panierSession = JSON.parse(sessionStorage.getItem('panier')),
-	            index = undefined;
+	            index = undefined,
+	            panierProduits = undefined;
 	        panierSession.forEach(function (item, i) {
 	            if (item.menu !== null) {
 	                index = i;
 	            }
 	        });
+	        panierProduits = panierSession.map(function (item) {
+	            if (item.menu === null) {
+	                return item;
+	            }
+	        });
 	        return this.state = {
-	            panier: panierSession,
-	            index: index
+	            panierMenu: panierSession[index].menu,
+	            panierProduits: panierProduits[0] == undefined ? panierProduits = [] : panierProduits
 	        };
 	    },
 	    render: function render() {
-	        console.log(this.state.panier[0].menu);
 	        return _react2['default'].createElement(
 	            'div',
 	            null,
@@ -25453,7 +25458,8 @@
 	                null,
 	                'Votre panier'
 	            ),
-	            _react2['default'].createElement(_ItemList2['default'], { options: this.state.panier[this.state.index].menu })
+	            _react2['default'].createElement(_ItemList2['default'], { options: this.state.panierMenu }),
+	            _react2['default'].createElement(_ItemList2['default'], { options: this.state.panierProduits })
 	        );
 	    }
 	});
@@ -26840,11 +26846,17 @@
 
 	var _ItemList2 = _interopRequireDefault(_ItemList);
 
+	var _utilsHelpers = __webpack_require__(216);
+
+	var _utilsHelpers2 = _interopRequireDefault(_utilsHelpers);
+
+	var Router = __webpack_require__(157);
+
 	var Dessert = _react2['default'].createClass({
 	    displayName: 'Dessert',
 
+	    mixins: [Router.History],
 	    getInitialState: function getInitialState() {
-
 	        return this.state = {
 	            desserts: [{
 	                id: '1',
@@ -26861,6 +26873,10 @@
 	            }]
 	        };
 	    },
+	    handleClick: function handleClick(item) {
+	        _utilsHelpers2['default'].setSession('panier', item, true);
+	        this.history.pushState(null, '/panier');
+	    },
 	    render: function render() {
 	        return _react2['default'].createElement(
 	            'div',
@@ -26870,7 +26886,7 @@
 	                null,
 	                'Choisissez votre Dessert'
 	            ),
-	            _react2['default'].createElement(_ItemList2['default'], { options: this.state.desserts, route: '/' })
+	            _react2['default'].createElement(_ItemList2['default'], { options: this.state.desserts, click: this.handleClick })
 	        );
 	    }
 	});
