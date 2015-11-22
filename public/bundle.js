@@ -25203,11 +25203,11 @@
 
 	var _componentsProduit2 = _interopRequireDefault(_componentsProduit);
 
-	var _componentsBoisson = __webpack_require__(216);
+	var _componentsBoisson = __webpack_require__(230);
 
 	var _componentsBoisson2 = _interopRequireDefault(_componentsBoisson);
 
-	var _componentsDessert = __webpack_require__(217);
+	var _componentsDessert = __webpack_require__(231);
 
 	var _componentsDessert2 = _interopRequireDefault(_componentsDessert);
 
@@ -25431,11 +25431,20 @@
 	    displayName: 'Panier',
 
 	    getInitialState: function getInitialState() {
+	        var panierSession = JSON.parse(sessionStorage.getItem('panier')),
+	            index = undefined;
+	        panierSession.forEach(function (item, i) {
+	            if (item.menu !== null) {
+	                index = i;
+	            }
+	        });
 	        return this.state = {
-	            panier: [JSON.parse(sessionStorage.getItem('panier'))]
+	            panier: panierSession,
+	            index: index
 	        };
 	    },
 	    render: function render() {
+	        console.log(this.state.panier[0].menu);
 	        return _react2['default'].createElement(
 	            'div',
 	            null,
@@ -25444,7 +25453,7 @@
 	                null,
 	                'Votre panier'
 	            ),
-	            _react2['default'].createElement(_ItemList2['default'], { options: this.state.panier, route: '/' })
+	            _react2['default'].createElement(_ItemList2['default'], { options: this.state.panier[this.state.index].menu })
 	        );
 	    }
 	});
@@ -25704,7 +25713,7 @@
 
 	var _ItemList2 = _interopRequireDefault(_ItemList);
 
-	var _utilsHelpers = __webpack_require__(218);
+	var _utilsHelpers = __webpack_require__(216);
 
 	var _utilsHelpers2 = _interopRequireDefault(_utilsHelpers);
 
@@ -25732,8 +25741,8 @@
 	    };
 	  },
 	  handleClick: function handleClick(item) {
-	    _utilsHelpers2['default'].setSession('panier', item);
-	    //this.history.pushState(null, this.props.route);
+	    _utilsHelpers2['default'].setSession('panier', item, true);
+	    this.history.pushState(null, '/boissons');
 	  },
 	  render: function render() {
 	    return _react2['default'].createElement(
@@ -25764,124 +25773,7 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _ItemList = __webpack_require__(211);
-
-	var _ItemList2 = _interopRequireDefault(_ItemList);
-
-	var Boisson = _react2['default'].createClass({
-	    displayName: 'Boisson',
-
-	    getInitialState: function getInitialState() {
-
-	        return this.state = {
-	            boissons: [{
-	                id: '1',
-	                nom: 'Coca',
-	                image: 'https://facebook.github.io/react/img/logo_og.png'
-	            }, {
-	                id: '2',
-	                nom: 'Orangina',
-	                image: 'https://facebook.github.io/react/img/logo_og.png'
-	            }, {
-	                id: '3',
-	                nom: 'Shweps',
-	                image: 'https://facebook.github.io/react/img/logo_og.png'
-	            }]
-	        };
-	    },
-
-	    render: function render() {
-	        return _react2['default'].createElement(
-	            'div',
-	            null,
-	            _react2['default'].createElement(
-	                'h2',
-	                null,
-	                'Choisissez votre Boisson'
-	            ),
-	            _react2['default'].createElement(_ItemList2['default'], { options: this.state.boissons, route: '/desserts' })
-	        );
-	    }
-	});
-
-	exports['default'] = Boisson;
-	module.exports = exports['default'];
-
-/***/ },
-/* 217 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, '__esModule', {
-	    value: true
-	});
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _ItemList = __webpack_require__(211);
-
-	var _ItemList2 = _interopRequireDefault(_ItemList);
-
-	var Dessert = _react2['default'].createClass({
-	    displayName: 'Dessert',
-
-	    getInitialState: function getInitialState() {
-
-	        return this.state = {
-	            desserts: [{
-	                id: '1',
-	                nom: 'Tarte à la fraise',
-	                image: 'https://upload.wikimedia.org/wikipedia/commons/0/0d/Imagemagick-logo.png'
-	            }, {
-	                id: '2',
-	                nom: 'Gateau au chocolat',
-	                image: 'https://upload.wikimedia.org/wikipedia/commons/0/0d/Imagemagick-logo.png'
-	            }, {
-	                id: '3',
-	                nom: 'Pêche melba',
-	                image: 'https://upload.wikimedia.org/wikipedia/commons/0/0d/Imagemagick-logo.png'
-	            }]
-	        };
-	    },
-	    render: function render() {
-	        return _react2['default'].createElement(
-	            'div',
-	            null,
-	            _react2['default'].createElement(
-	                'h2',
-	                null,
-	                'Choisissez votre Dessert'
-	            ),
-	            _react2['default'].createElement(_ItemList2['default'], { options: this.state.desserts, route: '/' })
-	        );
-	    }
-	});
-
-	exports['default'] = Dessert;
-	module.exports = exports['default'];
-
-/***/ },
-/* 218 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, '__esModule', {
-	    value: true
-	});
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
-	var _axios = __webpack_require__(219);
+	var _axios = __webpack_require__(217);
 
 	var _axios2 = _interopRequireDefault(_axios);
 
@@ -25932,8 +25824,9 @@
 	            sessionStorage.setItem(key, JSON.stringify(panierSession));
 	            return data;
 	        }
-	        if (sessionStorage.getItem(key) !== undefined) {
-	            panierSession = JSON.parse(sessionStorage.getItem(key));
+	        if (sessionStorage.getItem(key) !== null) {
+	            panierSession = [];
+	            panierSession.push(JSON.parse(sessionStorage.getItem(key)));
 	            panierSession.push(data);
 	            sessionStorage.setItem(key, JSON.stringify(panierSession));
 	            return panierSession;
@@ -25947,21 +25840,21 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 219 */
+/* 217 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(220);
+	module.exports = __webpack_require__(218);
 
 /***/ },
-/* 220 */
+/* 218 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var defaults = __webpack_require__(221);
-	var utils = __webpack_require__(222);
-	var dispatchRequest = __webpack_require__(223);
-	var InterceptorManager = __webpack_require__(230);
+	var defaults = __webpack_require__(219);
+	var utils = __webpack_require__(220);
+	var dispatchRequest = __webpack_require__(221);
+	var InterceptorManager = __webpack_require__(228);
 
 	var axios = module.exports = function (config) {
 	  // Allow for axios('example/url'[, config]) a la fetch API
@@ -26008,7 +25901,7 @@
 	axios.all = function (promises) {
 	  return Promise.all(promises);
 	};
-	axios.spread = __webpack_require__(231);
+	axios.spread = __webpack_require__(229);
 
 	// Expose interceptors
 	axios.interceptors = {
@@ -26047,12 +25940,12 @@
 
 
 /***/ },
-/* 221 */
+/* 219 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var utils = __webpack_require__(222);
+	var utils = __webpack_require__(220);
 
 	var PROTECTION_PREFIX = /^\)\]\}',?\n/;
 	var DEFAULT_CONTENT_TYPE = {
@@ -26115,7 +26008,7 @@
 
 
 /***/ },
-/* 222 */
+/* 220 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -26370,7 +26263,7 @@
 
 
 /***/ },
-/* 223 */
+/* 221 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -26387,11 +26280,11 @@
 	    try {
 	      // For browsers use XHR adapter
 	      if ((typeof XMLHttpRequest !== 'undefined') || (typeof ActiveXObject !== 'undefined')) {
-	        __webpack_require__(224)(resolve, reject, config);
+	        __webpack_require__(222)(resolve, reject, config);
 	      }
 	      // For node use HTTP adapter
 	      else if (typeof process !== 'undefined') {
-	        __webpack_require__(224)(resolve, reject, config);
+	        __webpack_require__(222)(resolve, reject, config);
 	      }
 	    } catch (e) {
 	      reject(e);
@@ -26403,18 +26296,18 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 224 */
+/* 222 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	/*global ActiveXObject:true*/
 
-	var defaults = __webpack_require__(221);
-	var utils = __webpack_require__(222);
-	var buildUrl = __webpack_require__(225);
-	var parseHeaders = __webpack_require__(226);
-	var transformData = __webpack_require__(227);
+	var defaults = __webpack_require__(219);
+	var utils = __webpack_require__(220);
+	var buildUrl = __webpack_require__(223);
+	var parseHeaders = __webpack_require__(224);
+	var transformData = __webpack_require__(225);
 
 	module.exports = function xhrAdapter(resolve, reject, config) {
 	  // Transform request data
@@ -26474,8 +26367,8 @@
 	  // This is only done if running in a standard browser environment.
 	  // Specifically not if we're in a web worker, or react-native.
 	  if (utils.isStandardBrowserEnv()) {
-	    var cookies = __webpack_require__(228);
-	    var urlIsSameOrigin = __webpack_require__(229);
+	    var cookies = __webpack_require__(226);
+	    var urlIsSameOrigin = __webpack_require__(227);
 
 	    // Add xsrf header
 	    var xsrfValue = urlIsSameOrigin(config.url) ?
@@ -26525,12 +26418,12 @@
 
 
 /***/ },
-/* 225 */
+/* 223 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var utils = __webpack_require__(222);
+	var utils = __webpack_require__(220);
 
 	function encode(val) {
 	  return encodeURIComponent(val).
@@ -26590,12 +26483,12 @@
 
 
 /***/ },
-/* 226 */
+/* 224 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var utils = __webpack_require__(222);
+	var utils = __webpack_require__(220);
 
 	/**
 	 * Parse headers into an object
@@ -26630,12 +26523,12 @@
 
 
 /***/ },
-/* 227 */
+/* 225 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var utils = __webpack_require__(222);
+	var utils = __webpack_require__(220);
 
 	/**
 	 * Transform the data for a request or a response
@@ -26655,7 +26548,7 @@
 
 
 /***/ },
-/* 228 */
+/* 226 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -26666,7 +26559,7 @@
 	 *  Please see lib/utils.isStandardBrowserEnv before including this file.
 	 */
 
-	var utils = __webpack_require__(222);
+	var utils = __webpack_require__(220);
 
 	module.exports = {
 	  write: function write(name, value, expires, path, domain, secure) {
@@ -26704,7 +26597,7 @@
 
 
 /***/ },
-/* 229 */
+/* 227 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -26715,7 +26608,7 @@
 	 *  Please see lib/utils.isStandardBrowserEnv before including this file.
 	 */
 
-	var utils = __webpack_require__(222);
+	var utils = __webpack_require__(220);
 	var msie = /(msie|trident)/i.test(navigator.userAgent);
 	var urlParsingNode = document.createElement('a');
 	var originUrl;
@@ -26768,12 +26661,12 @@
 
 
 /***/ },
-/* 230 */
+/* 228 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var utils = __webpack_require__(222);
+	var utils = __webpack_require__(220);
 
 	function InterceptorManager() {
 	  this.handlers = [];
@@ -26826,7 +26719,7 @@
 
 
 /***/ },
-/* 231 */
+/* 229 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -26857,6 +26750,133 @@
 	  };
 	};
 
+
+/***/ },
+/* 230 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+	    value: true
+	});
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _ItemList = __webpack_require__(211);
+
+	var _ItemList2 = _interopRequireDefault(_ItemList);
+
+	var _utilsHelpers = __webpack_require__(216);
+
+	var _utilsHelpers2 = _interopRequireDefault(_utilsHelpers);
+
+	var Router = __webpack_require__(157);
+
+	var Boisson = _react2['default'].createClass({
+	    displayName: 'Boisson',
+
+	    mixins: [Router.History],
+	    getInitialState: function getInitialState() {
+
+	        return this.state = {
+	            boissons: [{
+	                id: '1',
+	                nom: 'Coca',
+	                image: 'https://facebook.github.io/react/img/logo_og.png'
+	            }, {
+	                id: '2',
+	                nom: 'Orangina',
+	                image: 'https://facebook.github.io/react/img/logo_og.png'
+	            }, {
+	                id: '3',
+	                nom: 'Shweps',
+	                image: 'https://facebook.github.io/react/img/logo_og.png'
+	            }]
+	        };
+	    },
+	    handleClick: function handleClick(item) {
+	        _utilsHelpers2['default'].setSession('panier', item, true);
+	        this.history.pushState(null, '/desserts');
+	    },
+	    render: function render() {
+	        return _react2['default'].createElement(
+	            'div',
+	            null,
+	            _react2['default'].createElement(
+	                'h2',
+	                null,
+	                'Choisissez votre Boisson'
+	            ),
+	            _react2['default'].createElement(_ItemList2['default'], { options: this.state.boissons, click: this.handleClick })
+	        );
+	    }
+	});
+
+	exports['default'] = Boisson;
+	module.exports = exports['default'];
+
+/***/ },
+/* 231 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+	    value: true
+	});
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _ItemList = __webpack_require__(211);
+
+	var _ItemList2 = _interopRequireDefault(_ItemList);
+
+	var Dessert = _react2['default'].createClass({
+	    displayName: 'Dessert',
+
+	    getInitialState: function getInitialState() {
+
+	        return this.state = {
+	            desserts: [{
+	                id: '1',
+	                nom: 'Tarte à la fraise',
+	                image: 'https://upload.wikimedia.org/wikipedia/commons/0/0d/Imagemagick-logo.png'
+	            }, {
+	                id: '2',
+	                nom: 'Gateau au chocolat',
+	                image: 'https://upload.wikimedia.org/wikipedia/commons/0/0d/Imagemagick-logo.png'
+	            }, {
+	                id: '3',
+	                nom: 'Pêche melba',
+	                image: 'https://upload.wikimedia.org/wikipedia/commons/0/0d/Imagemagick-logo.png'
+	            }]
+	        };
+	    },
+	    render: function render() {
+	        return _react2['default'].createElement(
+	            'div',
+	            null,
+	            _react2['default'].createElement(
+	                'h2',
+	                null,
+	                'Choisissez votre Dessert'
+	            ),
+	            _react2['default'].createElement(_ItemList2['default'], { options: this.state.desserts, route: '/' })
+	        );
+	    }
+	});
+
+	exports['default'] = Dessert;
+	module.exports = exports['default'];
 
 /***/ }
 /******/ ]);

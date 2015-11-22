@@ -44,8 +44,9 @@ var helpers = {
             sessionStorage.setItem(key, JSON.stringify(panierSession));
             return data;
         }
-        if (sessionStorage.getItem(key) !== undefined) {
-            panierSession = JSON.parse(sessionStorage.getItem(key));
+        if (sessionStorage.getItem(key) !== null) {
+            panierSession = [];
+            panierSession.push(JSON.parse(sessionStorage.getItem(key)));
             panierSession.push(data);
             sessionStorage.setItem(key, JSON.stringify(panierSession));
             return panierSession;

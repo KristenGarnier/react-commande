@@ -29,8 +29,8 @@ let Produit = React.createClass({
     };
   },
   handleClick(item){
-    helpers.setSession('panier', item);
-    //this.history.pushState(null, this.props.route);
+    helpers.setSession('panier', item, true);
+    this.history.pushState(null, '/boissons');
   },
   render() {
     return (
